@@ -13,6 +13,8 @@ import ManageStores from "../pages/admin/ManageStores";
 import OwnerDashboard from "../pages/owner/OwnerDashboard";
 import AdminRatings from "../pages/admin/AdminRatings";
 
+import StoreDetails from "../pages/user/StoreDetails";
+
 
 import ProtectedRoute from "../components/ProtectedRoute";
 
@@ -32,6 +34,11 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       />
+
+      <Route
+  path="/store/:id"
+  element={<StoreDetails />}
+/>
 
       <Route
         path="/admin/dashboard"
