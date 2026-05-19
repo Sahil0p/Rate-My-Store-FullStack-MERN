@@ -38,7 +38,7 @@ CMD ["node", "src/server.js"]
 
 
 # to Run:
-# docker run --name ratemystore-app  -p 5000:5000  -e MONGO_URI=mongodb+srv://sahilahmed0029_db_user:6nRfGLSyzEGCnnds@cluster0.a1ndmrg.mongodb.net/  -e JWT_SECRET=6nRfGLSyzEGCnnds -e JWT_EXPIRES_IN="7d" -v "${PWD}/backend/uploads:/app/backend/uploads" ratemystore
+# docker run --name ratemystore-app  -p 5000:5000  -e MONGO_URI=  -e JWT_SECRET= -e JWT_EXPIRES_IN="7d" -v "${PWD}/backend/uploads:/app/backend/uploads" ratemystore
 
 
 # From the project root:
