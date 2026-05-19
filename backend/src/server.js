@@ -53,7 +53,7 @@ app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 /* =========================
    ROUTES
 ========================= */
-app.get("/", (req, res) => {
+app.get("/api/health", (req, res) => {
   res.send("API Running 🚀");
 });
 
@@ -61,6 +61,24 @@ app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/owner", ownerRoutes);
+
+/* =========================
+   FRONTEND BUILD
+========================= */
+const frontendPath = path.join(process.cwd(), "public");
+const frontendIndex = path.join(frontendPath, "index.html");
+
+app.use(express.static(frontendPath));
+
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api") || req.path.startsWith("/uploads")) {
+    return next();
+  }
+
+  res.sendFile(frontendIndex, (error) => {
+    if (error) next();
+  });
+});
 
 /* =========================
    404 HANDLER
